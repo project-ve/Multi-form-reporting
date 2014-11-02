@@ -50,7 +50,7 @@
             LIB.setStyle(PIF.id, 'display', 'none');
             LIB.createReport(PIF, PIR);
             // show report
-            LIB.setStyle(PIR.id, 'display', 'inline');
+            LIB.setStyle(PIR.id, 'display', 'block');
         }
     });
 
@@ -69,9 +69,9 @@
         if(V.isValidForm()){
             // hide report
             LIB.setStyle(PIR.id, 'display', 'none');
-             LIB.clearReport(PIF, PIR);
+             LIB.clearReport('.per-data');
             // show form
-            LIB.setStyle(PIF.id, 'display', 'inline');
+            LIB.setStyle(PIF.id, 'display', 'block');
         }
     });
 })(VE.app1);

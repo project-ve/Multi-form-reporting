@@ -6,47 +6,48 @@
     <body>
         <form id="pers-info">
             <h1>Personal Information</h1>
+            <!-- <img src="register_banner.png"/> -->
             <ul>
                 <!-- <li>First Name: </li> -->
-                <li><input id="fname" type="text" placeholder="First Name"><em id="fname-req"> required</em></li>
-                <li><input id="mname" type="text" placeholder="Middle Name"></li>
-                <li><input id="lname" type="text" placeholder="Last Name"><em id="lname-req"> required</em></li>
+                <li><input type="text" id="fname" placeholder="First Name"><em class="warning" id="fname-req"> required</em></li>
+                <li><input type="text" id="mname" placeholder="Middle Name"></li>
+                <li><input type="text" id="lname" placeholder="Last Name"><em class="warning" id="lname-req"> required</em></li>
                 <li>
                     Gender:
-                    <input name="sex" type="radio" value="male">Male
-                    <input name="sex" type="radio" value="female">Female
-                    <input name="sex" type="radio" value="none" checked>Do not wish to disclose
+                    <input type="radio" name="sex" id="male" value="male" checked><label for="male">Male</label>
+                    <input type="radio" name="sex" id="female" value="female"><label for="female">Female</label>
+                    <input type="radio" name="sex" id="none" value="none"><label for="none">Do not wish to disclose</label>
                 </li>
                 <li>
-                    <input id="dob" type="text" placeholder="DOB as dd/mm/yyyy">
-                    <em id="invalid-date">Invalid DOB</em>
-                    <em id="dob-req"> required</em>
+                    <input type="text"  id="dob" placeholder="DOB as dd/mm/yyyy">
+                    <em class="warning" id="invalid-date">Invalid DOB</em>
+                    <em class="warning" id="dob-req"> required</em>
                 </li>
                 <li id="lang">
                     Languages Known:<br>
-                    <input name="lang" type="checkbox" value="English">English<br>
-                    <input name="lang" type="checkbox" value="Hindi">Hindi<br>
-                    <input name="lang" type="checkbox" value="Regional">Regional Language <span id="reg-lang-container"></span><br>
-                    <input name="lang" type="checkbox" value="Foreign">Foreign Language <span id="foreign-lang-container"></span><br>
+                    <input type="checkbox" name="lang" id="eng" value="English"><label for="eng">English</label><br>
+                    <input type="checkbox" name="lang" id="hin" value="Hindi"><label for="hin">Hindi</label><br>
+                    <input type="checkbox" name="lang" id="reg" value="Regional"><label for="reg">Regional Language </label><span id="reg-lang-container"></span><br>
+                    <input type="checkbox" name="lang" id="for" value="Foreign"><label for="for">Foreign Language </label><span id="foreign-lang-container"></span><br>
                 </li>
-                <li><input type="text" id="phone" placeholder="Phone no XXX-XXX-XXXX"><em id="invalid-phone"> Invalid Phone number</em></li>
+                <li><input type="text" id="phone" placeholder="Phone no XXX-XXX-XXXX"><em class="warning" id="invalid-phone"> Invalid Phone number</em></li>
                 <li><textarea id="addr" placeholder="Address"></textarea></li>
-                <li><input type="button" id="next" value="next >>"><input type="reset"></li>
+                <li><input type="button" id="next" value="Next >>"><input type="reset"></li>
             </ul>
         </form>
         <div id="pers-info-report">
             <h1>Confirm your details</h1>
-            <ul>
-                <li><span id="fname_r">First Name: </span></li>
-                <li><span id="mname_r">Middle Name: </span></li>
-                <li><span id="lname_r">Last Name: </span></li>
-                <li><span id="sex_r">Gender: </span></li>
-                <li><span id="dob_r">DOB: </span></li>
-                <li><span id="lang_r">Languages known: </span></li>
-                <li><span id="phone_r">Phone Number: </span></li>
-                <li><span id="addr_r">Address: </span></li>
-                <li><input type="button" id="edit" value="<< edit"><input type="button" value="next >>"></li>
-            </ul>
+            <table>
+                <tr><td id="fname_r">First Name: </td></tr>
+                <tr><td id="mname_r">Middle Name: </td></tr>
+                <tr><td id="lname_r">Last Name: </td></tr>
+                <tr><td id="sex_r">Gender: </td></tr>
+                <tr><td id="dob_r">DOB: </td></tr>
+                <tr><td id="lang_r">Languages known: </td></tr>
+                <tr><td id="phone_r">Phone Number: </td></tr>
+                <tr><td id="addr_r">Address: </td></tr>
+                <tr><td><input type="button" id="edit" value="<< edit"></td><td><input type="button" value="next >>"></td></tr>
+            </table>
         </div>
         <!-- always include index first, others don't matter -->
         <script src="index.js"></script>

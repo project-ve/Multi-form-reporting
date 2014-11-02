@@ -10,7 +10,8 @@
     };
 
     var createNode = function(txt){
-        var span = document.createElement('span');
+        var span = document.createElement('td');
+        span.className = "per-data";
         var text = document.createTextNode(txt);
         span.appendChild(text);
         return span;
@@ -23,11 +24,11 @@
 
         for(var i=0; i<f.length; i++){
             var element = f.elements[i];
-            if (element.type == 'text' && element.value){
-                dstNode = r.querySelector('#' + element.id + '_r');
+            if ((element.type == 'text' || element.type == 'textarea') && element.value){
+                dstNode = r.querySelector('#' + element.id + '_r').parentElement;
                 dstNode.appendChild(createNode(element.value));
             } else if (element.type == 'checkbox'){
-                dstNode = r.querySelector('#' + element.name + '_r');
+                dstNode = r.querySelector('#' + element.name + '_r').parentElement;
                 var eName = element.name;
                 var res = '';
                 while (element.type == 'checkbox' && element.name == eName){
@@ -38,7 +39,7 @@
                 i--;
                 dstNode.appendChild(createNode(res));
             } else if (element.type == 'radio'){
-                dstNode = r.querySelector('#' + element.name + '_r');
+                dstNode = r.querySelector('#' + element.name + '_r').parentElement;
                 var eName = element.name;
                 var res = '';
                 while (element.type == 'radio' && element.name == eName){
@@ -52,22 +53,10 @@
         }
     };
     
-    LIB.clearReport = function(form, report){
-        var dstNode;
-        var f = form.self;
-        var r = report.self;
-
-        for(var i=0; i<f.length; i++){
-            var element = f.elements[i];
-            if (element.type == 'text'){
-                dstNode = r.querySelector('#' + element.id + '_r');
-            } else if (element.type == 'checkbox'){
-                dstNode = r.querySelector('#' + element.name + '_r');
-            } else if (element.type == 'radio'){
-                dstNode = r.querySelector('#' + element.name + '_r');
-            }
-            if (dstNode.firstElementChild)
-                dstNode.firstElementChild.remove();
+    LIB.clearReport = function(selector){
+        var delNodes = document.querySelectorAll(selector);
+        for(var i=delNodes.length-1; i>=0; i--){
+            delNodes[i].remove();
         }
     };
 })(VE.app1);
