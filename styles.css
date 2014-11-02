@@ -1,0 +1,8 @@
+#fname-req,
+#lname-req,
+#dob-req,
+#invalid-date, 
+#invalid-phone,
+#pers-info-report {
+  display: none;
+}
