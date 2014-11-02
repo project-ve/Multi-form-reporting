@@ -48,10 +48,17 @@ input:focus, textarea:focus, select:focus{
   box-shadow: 0px 0px 5px rgba(90, 100, 250, .9);
 }
 
-input[type="text"], textarea, select{
+input[type="text"], select{
   width: 250px;
 }
+textarea{
+  width: 350px;
+  height: 120px;
+}
 
+th {
+  text-align: left;
+}
 #dob {
   width: 210px;
 }
@@ -63,7 +70,7 @@ input[type="button"], input[type="reset"]{
   border-radius: 5px;
   outline: none;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
 }
 

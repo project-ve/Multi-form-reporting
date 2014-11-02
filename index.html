@@ -9,22 +9,22 @@
             <!-- <img src="register_banner.png"/> -->
             <ul>
                 <!-- <li>First Name: </li> -->
-                <li><input type="text" id="fname" placeholder="First Name"><em class="warning" id="fname-req"> required</em></li>
-                <li><input type="text" id="mname" placeholder="Middle Name"></li>
-                <li><input type="text" id="lname" placeholder="Last Name"><em class="warning" id="lname-req"> required</em></li>
+                <li><input type="text" id="fname" placeholder="*First Name"><em class="warning" id="fname-req"> required</em></li>
+                <li><input type="text" id="mname" placeholder=" Middle Name"></li>
+                <li><input type="text" id="lname" placeholder="*Last Name"><em class="warning" id="lname-req"> required</em></li>
                 <li>
-                    Gender:
+                    <b>Gender:</b>
                     <input type="radio" name="sex" id="male" value="male" checked><label for="male">Male</label>
                     <input type="radio" name="sex" id="female" value="female"><label for="female">Female</label>
                     <input type="radio" name="sex" id="none" value="none"><label for="none">Do not wish to disclose</label>
                 </li>
                 <li>
-                    <input type="text"  id="dob" placeholder="DOB as dd/mm/yyyy">
+                    <input type="text"  id="dob" placeholder="*DOB dd/mm/yyyy">
                     <em class="warning" id="invalid-date">Invalid DOB</em>
                     <em class="warning" id="dob-req"> required</em>
                 </li>
                 <li id="lang">
-                    Languages Known:<br>
+                    <b>Languages Known:</b><br>
                     <input type="checkbox" name="lang" id="eng" value="English"><label for="eng">English</label><br>
                     <input type="checkbox" name="lang" id="hin" value="Hindi"><label for="hin">Hindi</label><br>
                     <input type="checkbox" name="lang" id="reg" value="Regional"><label for="reg">Regional Language </label><span id="reg-lang-container"></span><br>
@@ -32,21 +32,21 @@
                 </li>
                 <li><input type="text" id="phone" placeholder="Phone no XXX-XXX-XXXX"><em class="warning" id="invalid-phone"> Invalid Phone number</em></li>
                 <li><textarea id="addr" placeholder="Address"></textarea></li>
-                <li><input type="button" id="next" value="Next >>"><input type="reset"></li>
+                <li><input type="button" id="next" value="NEXT >>"><input type="reset" value="RESET"></li>
             </ul>
         </form>
         <div id="pers-info-report">
             <h1>Confirm your details</h1>
             <table>
-                <tr><td id="fname_r">First Name: </td></tr>
-                <tr><td id="mname_r">Middle Name: </td></tr>
-                <tr><td id="lname_r">Last Name: </td></tr>
-                <tr><td id="sex_r">Gender: </td></tr>
-                <tr><td id="dob_r">DOB: </td></tr>
-                <tr><td id="lang_r">Languages known: </td></tr>
-                <tr><td id="phone_r">Phone Number: </td></tr>
-                <tr><td id="addr_r">Address: </td></tr>
-                <tr><td><input type="button" id="edit" value="<< edit"></td><td><input type="button" value="next >>"></td></tr>
+                <tr><th id="fname_r">First Name </th></tr>
+                <tr><th id="mname_r">Middle Name </th></tr>
+                <tr><th id="lname_r">Last Name </th></tr>
+                <tr><th id="sex_r">Gender </th></tr>
+                <tr><th id="dob_r">DOB </th></tr>
+                <tr><th id="lang_r">Languages known </th></tr>
+                <tr><th id="phone_r">Phone Number </th></tr>
+                <tr><th id="addr_r">Address </th></tr>
+                <tr><th><input type="button" id="edit" value="<< EDIT"></th><th><input type="button" value="NEXT >>"></th></tr>
             </table>
         </div>
         <!-- always include index first, others don't matter -->

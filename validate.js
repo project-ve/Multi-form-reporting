@@ -47,7 +47,8 @@
         var phone = PIF.self.querySelector('#phone').value;
         if (phone){
             var list = phone.split('-');
-            if (phone.length > 15 || phone.length < 12)
+            if (phone.length != 12 || list.length != 3 || list[0].length != 3 ||
+                list[1].length != 3 || list[2].length != 4)
                 valid = false;
             else {
                 list.forEach(function(e){

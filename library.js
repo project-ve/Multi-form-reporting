@@ -24,20 +24,30 @@
 
         for(var i=0; i<f.length; i++){
             var element = f.elements[i];
-            if ((element.type == 'text' || element.type == 'textarea') && element.value){
+            if ((element.type == 'text' || element.type == 'textarea')){
+                var val;
                 dstNode = r.querySelector('#' + element.id + '_r').parentElement;
-                dstNode.appendChild(createNode(element.value));
+                if (!element.value)
+                    val = '-NA-';
+                else
+                    val = element.value;
+                dstNode.appendChild(createNode(val));
             } else if (element.type == 'checkbox'){
                 dstNode = r.querySelector('#' + element.name + '_r').parentElement;
                 var eName = element.name;
-                var res = '';
-                while (element.type == 'checkbox' && element.name == eName){
-                    if (element.checked)
-                        res = res + element.value + ', ';
+                var res = [];
+                while ((element.type == 'checkbox' || element.type == 'select-one') && element.name == eName){
+                    if (element.checked){
+                        res.push(element.value);
+                    }
+                    if (element.type == 'select-one'){
+                        res.pop();
+                        res.push(element.value);
+                    }
                     element = f.elements[++i];
                 }
                 i--;
-                dstNode.appendChild(createNode(res));
+                dstNode.appendChild(createNode(res.join(', ')));
             } else if (element.type == 'radio'){
                 dstNode = r.querySelector('#' + element.name + '_r').parentElement;
                 var eName = element.name;

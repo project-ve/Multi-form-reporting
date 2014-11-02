@@ -23,6 +23,7 @@
             return;
         }
         var sel = document.createElement('select');
+        sel.name = "lang";
         // sel.multiple = true;
         this.optList.forEach(function(lan){
             var opt = document.createElement('option');
