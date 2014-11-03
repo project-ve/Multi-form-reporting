@@ -18,8 +18,8 @@ body{
 #pers-info, #pers-info-report {
   margin: 0 auto;
   background: #ffffff;
-  width: 40%;
-  padding: 10px 50px;
+  width: 80%;
+  padding: 1% 5%;
 }
 
 h1{
@@ -65,6 +65,7 @@ th {
 
 input[type="button"], input[type="reset"]{
   /* background: rgba(90, 100, 250, .9); */
+  margin-top: 40px;
   background: gray;
   padding: 10px 30px;
   border-radius: 5px;
@@ -72,6 +73,12 @@ input[type="button"], input[type="reset"]{
   border: none;
   font-size: 14px;
   font-weight: bold;
+}
+
+input[type="button"]:hover, input[type="reset"]:hover{
+  background: black;
+  color: white;
+  cursor: pointer;
 }
 
 .warning{

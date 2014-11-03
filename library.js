@@ -9,12 +9,12 @@
         document.querySelector(id).style[attr] = val;
     };
 
-    var createNode = function(txt){
-        var span = document.createElement('td');
-        span.className = "per-data";
+    var createNode = function(type, txt){
+        var elem = document.createElement(type);
+        elem.className = "per-data";
         var text = document.createTextNode(txt);
-        span.appendChild(text);
-        return span;
+        elem.appendChild(text);
+        return elem;
     };
     
     LIB.createReport = function(form, report){
@@ -24,14 +24,11 @@
 
         for(var i=0; i<f.length; i++){
             var element = f.elements[i];
+            var textRes = '-NA-';
             if ((element.type == 'text' || element.type == 'textarea')){
-                var val;
                 dstNode = r.querySelector('#' + element.id + '_r').parentElement;
-                if (!element.value)
-                    val = '-NA-';
-                else
-                    val = element.value;
-                dstNode.appendChild(createNode(val));
+                textRes = element.value ? element.value : textRes;
+                dstNode.appendChild(createNode('td', textRes));
             } else if (element.type == 'checkbox'){
                 dstNode = r.querySelector('#' + element.name + '_r').parentElement;
                 var eName = element.name;
@@ -47,18 +44,18 @@
                     element = f.elements[++i];
                 }
                 i--;
-                dstNode.appendChild(createNode(res.join(', ')));
+                textRes = res.length ? res.join(', ') : textRes;
+                dstNode.appendChild(createNode('td', textRes));
             } else if (element.type == 'radio'){
                 dstNode = r.querySelector('#' + element.name + '_r').parentElement;
                 var eName = element.name;
-                var res = '';
                 while (element.type == 'radio' && element.name == eName){
                     if (element.checked)
-                        res = element.value;
+                        textRes = element.value;
                     element = f.elements[++i];
                 }
                 i--;
-                dstNode.appendChild(createNode(res));
+                dstNode.appendChild(createNode('td', textRes));
             }
         }
     };
