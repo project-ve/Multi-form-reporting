@@ -33,12 +33,12 @@
         this.dstNode.appendChild(sel);
     };
 
-    var data = { 'optList': ['telugu', 'kannada', 'tamil', 'punjabi', 'marathi'],
+    var data = { 'optList': ['Telugu', 'Kannada', 'Tamil', 'Punjabi', 'Marathi'],
                  'regLangCheckbox': PIF.langContainer.querySelector('input[value="Regional"]'),
                  'dstNode': PIF.regLangListContainer };
     data.regLangCheckbox.addEventListener('change', addSelectList.bind(data));
 
-    data = { 'optList': ['spanish', 'french', 'italian', 'mandalin', 'japanese'],
+    data = { 'optList': ['Spanish', 'French', 'Italian', 'Mandalin', 'Japanese'],
              'foreignLangCheckbox': PIF.langContainer.querySelector('input[value="Foreign"]'),
              'dstNode': PIF.forLangListContainer };
     data.foreignLangCheckbox.addEventListener('change', addSelectList.bind(data));
@@ -62,17 +62,19 @@
         PIF.forLangListContainer.innerHTML = "";
         V.requiredFieldsMsg(false);
         V.invalidPhoneMsg(false);
+        V.invalidDobMsg(false);
     });
     
-    // personal info form submit button event handler
-    var perInfoRepNextButton = PIR.self.querySelector('#edit');
-    perInfoRepNextButton.addEventListener('click', function(){
-        if(V.isValidForm()){
-            // hide report
-            LIB.setStyle(PIR.id, 'display', 'none');
-             LIB.clearReport('.per-data');
-            // show form
-            LIB.setStyle(PIF.id, 'display', 'block');
-        }
+    // personal info report edit button event handler
+    var perInfoRepEditButton = PIR.self.querySelector('#edit');
+    perInfoRepEditButton.addEventListener('click', function(){
+        // hide report
+        LIB.setStyle(PIR.id, 'display', 'none');
+        LIB.clearReport('.per-data');
+        V.requiredFieldsMsg(false);
+        V.invalidPhoneMsg(false);
+        V.invalidDobMsg(false);
+        // show form
+        LIB.setStyle(PIF.id, 'display', 'block');
     });
 })(VE.app1);
