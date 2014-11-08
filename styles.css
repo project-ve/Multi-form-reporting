@@ -11,6 +11,10 @@ body{
 #dob-req,
 #invalid-date, 
 #invalid-phone,
+#invalid-fname,
+#invalid-mname,
+#invalid-lname,
+#invalid-addr,
 #pers-info-report {
   display: none;
 }

@@ -46,7 +46,7 @@
     // personal info form submit button event handler
     var perInfoNextButton = PIF.self.querySelector('#next');
     perInfoNextButton.addEventListener('click', function(){
-        if(V.isValidForm()){
+        if(V.validateForm()){
             // hide form
             LIB.setStyle(PIF.id, 'display', 'none');
             LIB.createReport(PIF, PIR);
@@ -60,9 +60,8 @@
     perInfoResetButton.addEventListener('click', function(){
         PIF.regLangListContainer.innerHTML = "";
         PIF.forLangListContainer.innerHTML = "";
-        V.requiredFieldsMsg(false);
-        V.invalidPhoneMsg(false);
-        V.invalidDobMsg(false);
+        // clear field validation messages
+        V.clearForm();
     });
     
     // personal info report edit button event handler
@@ -71,9 +70,6 @@
         // hide report
         LIB.setStyle(PIR.id, 'display', 'none');
         LIB.clearReport('.per-data');
-        V.requiredFieldsMsg(false);
-        V.invalidPhoneMsg(false);
-        V.invalidDobMsg(false);
         // show form
         LIB.setStyle(PIF.id, 'display', 'block');
     });

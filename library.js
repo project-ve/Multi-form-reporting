@@ -5,6 +5,10 @@
         return !document.querySelector(id).value;
     };
 
+    LIB.getValue = function(id){
+        return document.querySelector(id).value;
+    };
+
     LIB.setStyle = function(id, attr, val){
         document.querySelector(id).style[attr] = val;
     };

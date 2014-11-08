@@ -9,9 +9,20 @@
             <!-- <img src="register_banner.png"/> -->
             <ul>
                 <!-- <li>First Name: </li> -->
-                <li><input type="text" id="fname" placeholder="*First Name"><em class="warning" id="fname-req"> required</em></li>
-                <li><input type="text" id="mname" placeholder=" Middle Name"></li>
-                <li><input type="text" id="lname" placeholder="*Last Name"><em class="warning" id="lname-req"> required</em></li>
+                <li>
+                    <input type="text" id="fname" placeholder="*First Name">
+                    <em class="warning" id="fname-req"> Required</em>
+                    <em class="warning" id="invalid-fname"> Invalid first name</em>
+                </li>
+                <li>
+                    <input type="text" id="mname" placeholder=" Middle Name">
+                    <em class="warning" id="invalid-mname"> Invalid middle name</em>
+                </li>
+                <li>
+                    <input type="text" id="lname" placeholder="*Last Name">
+                    <em class="warning" id="lname-req"> Required</em>
+                    <em class="warning" id="invalid-lname"> Invalid last name</em>
+                </li>
                 <li>
                     <b>Gender:</b>
                     <input type="radio" name="sex" id="male" value="male" checked><label for="male">Male</label>
@@ -21,7 +32,7 @@
                 <li>
                     <input type="text"  id="dob" placeholder="*DOB mm/dd/yyyy">
                     <em class="warning" id="invalid-date">Invalid DOB</em>
-                    <em class="warning" id="dob-req"> required</em>
+                    <em class="warning" id="dob-req"> Required</em>
                 </li>
                 <li id="lang">
                     <b>Languages Known:</b><br>
@@ -31,7 +42,10 @@
                     <input type="checkbox" name="lang" id="for" value="Foreign"><label for="for">Foreign Language </label><span id="foreign-lang-container"></span><br>
                 </li>
                 <li><input type="text" id="phone" placeholder="Phone no XXX-XXX-XXXX"><em class="warning" id="invalid-phone"> Invalid Phone number</em></li>
-                <li><textarea id="addr" placeholder="Address"></textarea></li>
+                <li>
+                    <textarea id="addr" placeholder="Address"></textarea>
+                    <em class="warning" id="invalid-addr"> Invalid address</em>
+                </li>
                 <li><input type="button" id="next" value="NEXT >>"><input type="reset" value="RESET"></li>
             </ul>
         </form>

@@ -5,52 +5,69 @@
     // library
     var LIB = myApp.lib;
 
-    V.isValidForm = function(){
+    V.clearForm = function(){
+        var validatables = document.querySelectorAll('.warning');
+        [].forEach.call(validatables, function(f){
+            f.style.display = 'none';
+        });
+    };
+
+    V.validateForm = function(){
         var valid = true;
-        if (!V.invalidPhoneMsg(true))
+        if (!V.validateRequiredFields())
             valid = false;
-        if (!V.requiredFieldsMsg(true))
+        if (!V.validateChars())
             valid = false;
-        if (!V.invalidDobMsg(true))
+        if (!V.validatePhone())
+            valid = false;
+        if (!V.validateDob())
             valid = false;
         return valid;
     };
     
-    V.requiredFieldsMsg = function(show){
+    V.validateRequiredFields = function(){
         // verify if required fields are not empty
-        var display = show ? 'inline' : 'none';
-        if (!show){
-            // hide message and return;
-            LIB.setStyle(PIF.id + ' #fname-req', 'display', display);
-            LIB.setStyle(PIF.id + ' #lname-req', 'display', display);
-            LIB.setStyle(PIF.id + ' #dob-req', 'display', display);
-            return;
-        }
         var valid = true;
-        // first name
-        if(LIB.isEmpty(PIF.id + ' #fname')) {
-            LIB.setStyle(PIF.id + ' #fname-req', 'display', display);
-            valid = false;
-        }
-        // last name
-        if(LIB.isEmpty(PIF.id + ' #lname')) {
-            LIB.setStyle(PIF.id + ' #lname-req', 'display', display);
-            valid = false;
-        }
-        // DOB
-        if(LIB.isEmpty(PIF.id + ' #dob')) {
-            LIB.setStyle(PIF.id + ' #dob-req', 'display', display);
-            valid = false;
+        var reqFields = {
+                            ' #fname': ' #fname-req',
+                            ' #lname': ' #lname-req',
+                            ' #dob': ' #dob-req'
+                        };
+        for(f in reqFields){
+            if(LIB.isEmpty(PIF.id + f)) {
+                LIB.setStyle(PIF.id + reqFields[f], 'display', 'inline');
+                valid = false;
+            } else {
+                LIB.setStyle(PIF.id + reqFields[f], 'display', 'none');
+            }
         }
         return valid;
     }
 
-    V.invalidPhoneMsg = function(show){
-        if (!show){
-            // hide message and return;
-            LIB.setStyle(PIF.id + ' #invalid-phone', 'display', 'none');
-            return;
+    V.validateChars = function(){
+        // verify if data entered has invalid chars like ;,$,% etc
+        var valid = true;
+        var address = /[*|\":<>[\]{}`\\()';@&$]/; // only special chars
+        var name = /[\d+*|\":<>[\]{}`\\()';@&$]/;  // special chars plus numbers
+        var fields = {
+                            ' #fname': ' #invalid-fname',
+                            ' #mname': ' #invalid-mname',
+                            ' #lname': ' #invalid-lname',
+                            ' #addr': ' #invalid-addr',
+                        };
+        for(f in fields){
+            var regEx = (f === ' #addr') ? address : name;    
+            if(regEx.test(LIB.getValue(PIF.id + f))) {
+                LIB.setStyle(PIF.id + fields[f], 'display', 'inline');
+                valid = false;
+            } else {
+                LIB.setStyle(PIF.id + fields[f], 'display', 'none');
+            }
         }
+        return valid;
+    }
+
+    V.validatePhone = function(){
         // verify if phone number is valid
         var valid = true;
         var phone = PIF.self.querySelector('#phone').value;
@@ -69,16 +86,14 @@
         // show message if invalid
         if (!valid)
             LIB.setStyle(PIF.id + ' #invalid-phone', 'display', 'inline');
+        else
+            LIB.setStyle(PIF.id + ' #invalid-phone', 'display', 'none');
+
         return valid;
     };
     
-    V.invalidDobMsg = function(show){
-        if (!show){
-            // hide message and return;
-            LIB.setStyle(PIF.id + ' #invalid-date', 'display', 'none');
-            return;
-        }
-        // verify if date number is valid
+    V.validateDob = function(){
+        // verify if date is valid
         var valid = false;
         var date = PIF.self.querySelector('#dob').value;
         if (date.trim()){
@@ -103,10 +118,13 @@
                      date > monthRange[month-1]))
                     valid = true;
             }
-        }
+        } else
+            valid = true;
         // show message if invalid
         if (!valid)
             LIB.setStyle(PIF.id + ' #invalid-date', 'display', 'inline');
+        else
+            LIB.setStyle(PIF.id + ' #invalid-date', 'display', 'none');
         return valid;
     };
 
