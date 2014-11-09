@@ -4,6 +4,10 @@ var VE = (function(my){
             'form': {},
             'report': {}
         },
+        'eduInfo': {
+            'form': {},
+            'report': {}
+        },
         'validate': {},
         'lib': {}
     };

@@ -15,11 +15,13 @@ body{
 #invalid-mname,
 #invalid-lname,
 #invalid-addr,
-#pers-info-report {
+#pers-info-report,
+#edu-info,
+#add-edu-warning {
   display: none;
 }
 
-#pers-info, #pers-info-report {
+#pers-info, #pers-info-report, #edu-info {
   margin: 0 auto;
   background: #ffffff;
   width: 80%;
@@ -34,7 +36,7 @@ ul{
   list-style-type: none;
 }
 
-input, textarea{
+input, textarea, .degree{
   padding: 10px 20px;
   margin: 10px;
   font-size: 16px;
@@ -55,15 +57,27 @@ input:focus, textarea:focus, select:focus{
 input[type="text"], select{
   width: 250px;
 }
-textarea{
+input.univ, textarea{
   width: 350px;
+}
+
+.degree {
+  width: 170px;
+}
+
+input.start-date, input.end-date, input.state, input.zip-code {
+  width: 150px;
+}
+
+textarea {
   height: 120px;
 }
 
 th {
   text-align: left;
 }
-#dob {
+
+#dob, .start-date, .end-date{
   width: 210px;
 }
 
@@ -96,4 +110,10 @@ input[type="button"]:hover, input[type="reset"]:hover{
 
 .per-data {
   padding-left: 50px;
+}
+
+.edu-item {
+  border: 1px solid black;
+  border-left: 3px solid gray;
+  padding: 30px;
 }

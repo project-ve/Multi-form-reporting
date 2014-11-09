@@ -4,13 +4,14 @@
         <link rel="stylesheet" type="text/css" href="styles.css">
     </head>
     <body>
+        <!-- personal information form -->
         <form id="pers-info">
             <h1>Personal Information</h1>
             <!-- <img src="register_banner.png"/> -->
             <ul>
                 <!-- <li>First Name: </li> -->
                 <li>
-                    <input type="text" id="fname" placeholder="*First Name">
+                    <input type="text" id="fname" placeholder="*First Name" value="a">
                     <em class="warning" id="fname-req"> Required</em>
                     <em class="warning" id="invalid-fname"> Invalid first name</em>
                 </li>
@@ -19,7 +20,7 @@
                     <em class="warning" id="invalid-mname"> Invalid middle name</em>
                 </li>
                 <li>
-                    <input type="text" id="lname" placeholder="*Last Name">
+                    <input type="text" id="lname" placeholder="*Last Name" value="b">
                     <em class="warning" id="lname-req"> Required</em>
                     <em class="warning" id="invalid-lname"> Invalid last name</em>
                 </li>
@@ -30,7 +31,7 @@
                     <input type="radio" name="sex" id="none" value="none"><label for="none">Do not wish to disclose</label>
                 </li>
                 <li>
-                    <input type="text"  id="dob" placeholder="*DOB mm/dd/yyyy">
+                    <input type="text"  id="dob" placeholder="*DOB mm/dd/yyyy" value="1/1/2000">
                     <em class="warning" id="invalid-date">Invalid DOB</em>
                     <em class="warning" id="dob-req"> Required</em>
                 </li>
@@ -49,6 +50,7 @@
                 <li><input type="button" id="next" value="NEXT >>"><input type="reset" value="RESET"></li>
             </ul>
         </form>
+        <!-- personal information report -->
         <div id="pers-info-report">
             <h1>Confirm your details</h1>
             <table>
@@ -60,9 +62,43 @@
                 <tr><th id="lang_r">Languages known </th></tr>
                 <tr><th id="phone_r">Phone Number </th></tr>
                 <tr><th id="addr_r">Address </th></tr>
-                <tr><th><input type="button" id="edit" value="<< EDIT"></th><th><input type="button" value="NEXT >>"></th></tr>
+                <tr><th><input type="button" id="edit" value="<< EDIT"></th><th><input type="button" id="confirm" value="Confirm >>"></th></tr>
             </table>
         </div>
+        <!-- education details form -->
+        <form id="edu-info">
+            <h1>Education details</h1>
+            <div>
+                <ul class="edu-item">
+                    <li>
+                        <input type="text" class="univ" placeholder="*University/School">
+                        <select class="degree">
+                            <option>Doctorate</option>
+                            <option>Masters</option>
+                            <option>Bachelors</option>
+                            <option>High school</option>
+                        </select>
+                    </li>
+                    <li>
+                        <input type="text" class="start-date" placeholder="Start date">
+                        <input type="text" class="end-date" placeholder="End date">
+                    </li>
+                    <li>
+                        <b>Address</b><br>
+                        <input type="text" class="addr1" placeholder="Address line 1">
+                        <input type="text" class="addr2" placeholder="Address line 2"><br>
+                        <input type="text" class="city" placeholder="City">
+                        <input type="text" class="state" placeholder="State"><br>
+                        <input type="text" class="country" placeholder="Country">
+                        <input type="text" class="zip-code" placeholder="Zip code">
+                    </li>
+                </ul>
+            </div>
+            <ul>
+                <li><input type="button" id="add-edu" value="+"><em class="warning" id="add-edu-warning"> Maximum four items allowed</em></li>
+                <li><input type="button" id="next" value="NEXT >>"><input type="reset" value="RESET"></li>
+            </ul>
+        </form>
         <!-- always include index first, others don't matter -->
         <script src="index.js"></script>
         <script src="library.js"></script>
