@@ -89,17 +89,30 @@
         LIB.setStyle(EIF.id, 'display', 'block');
     });
 
-    var eduCounter = (function(){
-        var counter = 1;
-        return function(){
-            return ++counter;
+    var eduCounter = {
+        id: 1,
+        count: 1,
+        increment: function(){
+            this.count++;
+            return ++this.id;
+        },
+        decrement: function(){
+            this.count--;
         }
-    })();
+    };
+
+    var removeEduItem = function(){
+        eduCounter.decrement();
+        document.querySelector('#' + this.toBeRemovedId).remove();
+        LIB.setStyle(EIF.id + ' #add-edu-warning', 'display', 'none');
+    };
 
     var addEducation = function(){
-        if(eduCounter() <= 4){
+        var id = eduCounter.increment();
+        if(eduCounter.count <= 4){
             var list = document.createElement('ul');
             list.className = "edu-item";
+            list.id = "edu-item-" + id;
             
             var listItem1 = document.createElement('li');
             // univ name
@@ -116,6 +129,14 @@
                 degree.appendChild(opt);
             });
             listItem1.appendChild(degree);
+            // delete education button
+            var delEduButton = document.createElement('input');
+            delEduButton.type = 'button';
+            delEduButton.id = 'del-edu';
+            delEduButton.value = '-';
+            delEduButton.toBeRemovedId = list.id;
+            listItem1.appendChild(delEduButton);
+            delEduButton.addEventListener('click', removeEduItem);
             list.appendChild(listItem1);
 
             var listItem2 = document.createElement('li');
@@ -132,9 +153,8 @@
             list.appendChild(listItem2);
 
             EIF.self.querySelector('div').appendChild(list);
-            // var hr = document.createElement('hr');
-            EIF.self.querySelector('div').appendChild(hr);
         } else {
+            eduCounter.decrement();
             LIB.setStyle(EIF.id + ' #add-edu-warning', 'display', 'inline');
         }
     };

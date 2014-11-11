@@ -116,4 +116,9 @@ input[type="button"]:hover, input[type="reset"]:hover{
   border: 1px solid black;
   border-left: 3px solid gray;
   padding: 30px;
+  background: #eeeeff;
+}
+
+.edu-item:hover {
+  background: #ddddff;
 }
