@@ -8,6 +8,7 @@ body{
 
 #fname-req,
 #lname-req,
+#univ-req,
 #dob-req,
 #invalid-date, 
 #invalid-phone,
@@ -80,7 +81,6 @@ textarea {
 }
 
 input[type="button"], input[type="reset"]{
-  /* background: rgba(90, 100, 250, .9); */
   margin-top: 40px;
   background: gray;
   padding: 10px 30px;
@@ -93,8 +93,6 @@ input[type="button"], input[type="reset"]{
 }
 
 input[type="button"]:hover, input[type="reset"]:hover{
-  /* background: #0000FF; */
-  /* color: white; */
   cursor: pointer;
 }
 

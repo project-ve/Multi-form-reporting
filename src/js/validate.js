@@ -11,7 +11,7 @@
 
     V.validateForm = function(){
         var valid = true;
-        if (!V.validateRequiredFields())
+        if (!V.validateRequiredFields(PIF))
             valid = false;
         if (!V.validateChars())
             valid = false;
@@ -23,20 +23,16 @@
     };
 
     /*--------- Required fields Validation-----------*/
-    V.validateRequiredFields = function(){
+    V.validateRequiredFields = function(form){
         // verify if required fields are not empty
         var valid = true;
-        var reqFields = {
-                            ' #fname': ' #fname-req',
-                            ' #lname': ' #lname-req',
-                            ' #dob': ' #dob-req'
-                        };
+        var reqFields = form.reqFields;
         for(f in reqFields){
-            if(LIB.isEmpty(PIF.id + f)) {
-                LIB.setStyle(PIF.id + reqFields[f], 'display', 'inline');
+            if(LIB.isEmpty(form.id + f)) {
+                LIB.setStyle(form.id + reqFields[f], 'display', 'inline');
                 valid = false;
             } else {
-                LIB.setStyle(PIF.id + reqFields[f], 'display', 'none');
+                LIB.setStyle(form.id + reqFields[f], 'display', 'none');
             }
         }
         return valid;

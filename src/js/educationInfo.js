@@ -16,6 +16,9 @@
     EIF.self = document.querySelector(EIF.id);
     EIR.id = '#edu-info-report';
     EIR.self = document.querySelector(EIR.id);
+    EIF.reqFields = {
+                            ' #univ': ' #univ-req'
+                        };
 
 
     /*------- Add edu-item button event handler ----------------------------------*/
@@ -39,6 +42,16 @@
             univName.className = "univ";
             univName.id = "univ" + "-" + id;
             listItem1.appendChild(univName);
+            // univ required warning
+            var univReqMsg = document.createElement('em');
+            univReqMsg.innerHTML = "required";
+            univReqMsg.className = "warning";
+            univReqMsg.style.display = "none";
+            univReqMsg.id = "univ" + "-req-" + id;
+            listItem1.appendChild(univReqMsg);
+            // Add it to required fields of edu-form
+            EIF.reqFields[' #' + univName.id] = ' #' + univReqMsg.id;
+            
             // degree select list
             var degree = document.createElement('select');
             degree.className = 'degree';
@@ -55,6 +68,7 @@
             delEduButton.id = 'del-edu';
             delEduButton.value = '-';
             delEduButton.toBeRemovedId = fs.id;
+            delEduButton.ReqFieldsId = univName.id;
             listItem1.appendChild(delEduButton);
             delEduButton.addEventListener('click', removeEduItem);
             list.appendChild(listItem1);
@@ -122,6 +136,7 @@
         eduCounter.decrement();
         document.querySelector('#' + this.toBeRemovedId).remove();
         document.querySelector('#' + this.toBeRemovedId + '_r').remove();
+        delete EIF.reqFields[' #' + this.ReqFieldsId];
         LIB.setStyle(EIF.id + ' #add-edu-warning', 'display', 'none');
     };
 
@@ -133,13 +148,15 @@
     /*------- Form next button event handler -----------------------------------*/
     var eduInfoNextButton = EIF.self.querySelector('#edu-next');
     eduInfoNextButton.addEventListener('click', function(){
-        // if(V.validateForm()){
+        if(V.validateRequiredFields(EIF)){
             // hide form
             LIB.setStyle(EIF.id, 'display', 'none');
             LIB.createReport(EIF, EIR);
             // show report
             LIB.setStyle(EIR.id, 'display', 'block');
-        // }
+        } else {
+           alert("something wrong");
+        }
     });
 
     /*------- Report edit button event handler -----------------------------------*/

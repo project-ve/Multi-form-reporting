@@ -20,6 +20,11 @@
     PIF.langContainer = PIF.self.querySelector('#lang');
     PIF.regLangListContainer = PIF.langContainer.querySelector('#reg-lang-container');
     PIF.forLangListContainer = PIF.langContainer.querySelector('#foreign-lang-container');
+    PIF.reqFields = {
+                            ' #fname': ' #fname-req',
+                            ' #lname': ' #lname-req',
+                            ' #dob': ' #dob-req'
+                        };
 
 
     /*------- Form next button event handler -----------------------------------*/
