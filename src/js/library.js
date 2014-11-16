@@ -58,6 +58,10 @@
                 }
                 i--;
                 dstNode.appendChild(createNode('td', textRes));
+            } else if (element.type == 'select-one'){
+                dstNode = r.querySelector('#' + element.id + '_r').parentElement;
+                textRes = element.value ? element.value : textRes;
+                dstNode.appendChild(createNode('td', textRes));
             }
         }
     };

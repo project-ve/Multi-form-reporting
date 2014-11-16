@@ -17,11 +17,13 @@ body{
 #invalid-addr,
 #pers-info-report,
 #edu-info,
+#edu-info-report,
+#final-report,
 #add-edu-warning {
   display: none;
 }
 
-#pers-info, #pers-info-report, #edu-info {
+#pers-info, #pers-info-report, #edu-info-report, #edu-info, #final-report {
   margin: 0 auto;
   background: #ffffff;
   width: 80%;
@@ -73,10 +75,6 @@ textarea {
   height: 120px;
 }
 
-th {
-  text-align: left;
-}
-
 #dob, .start-date, .end-date{
   width: 210px;
 }
@@ -91,11 +89,12 @@ input[type="button"], input[type="reset"]{
   border: none;
   font-size: 14px;
   font-weight: bold;
+  color: white;
 }
 
 input[type="button"]:hover, input[type="reset"]:hover{
-  background: black;
-  color: white;
+  /* background: #0000FF; */
+  /* color: white; */
   cursor: pointer;
 }
 
@@ -103,7 +102,7 @@ input[type="button"]:hover, input[type="reset"]:hover{
   color: red;
 }
 
-#pers-info-report td{
+#pers-info-report td, #edu-info-report td{
   padding: 10px;
   margin: 10px;
 }
@@ -112,13 +111,31 @@ input[type="button"]:hover, input[type="reset"]:hover{
   padding-left: 50px;
 }
 
-.edu-item {
-  border: 1px solid black;
-  border-left: 3px solid gray;
+#final-report h2{
+  color: green;
   padding: 30px;
-  background: #eeeeff;
 }
 
-.edu-item:hover {
-  background: #ddddff;
+fieldset {
+  padding: 20px;
+  margin: 20px;
+}
+
+legend {
+  margin-top: 20px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  font-size: 14px;
+  background: gray;
+  font-weight: bold;
+  color: white;
+}
+
+table {
+  margin-left: 50px;
+}
+
+th {
+  text-align: left;
+  padding-right: 25px;
 }

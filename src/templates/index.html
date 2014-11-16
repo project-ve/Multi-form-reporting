@@ -1,13 +1,13 @@
 <html>
     <head>
-        <title></title>
+        <title>Personal Information</title>
         <link rel="stylesheet" type="text/css" href="../css/styles.css">
     </head>
     <body>
         <!-- personal information form -->
         <form id="pers-info">
-            <h1>Personal Information</h1>
-            <!-- <img src="register_banner.png"/> -->
+            <fieldset>
+                <legend>Personal Info</legend>
             <ul>
                 <!-- <li>First Name: </li> -->
                 <li>
@@ -47,58 +47,83 @@
                     <textarea id="addr" placeholder="Address"></textarea>
                     <em class="warning" id="invalid-addr"> Invalid address</em>
                 </li>
-                <li><input type="button" id="next" value="NEXT >>"><input type="reset" value="RESET"></li>
+                <li><input type="button" id="next" value="Next >>"><input type="reset" value="Reset"></li>
             </ul>
+            </fieldset>
         </form>
         <!-- personal information report -->
         <div id="pers-info-report">
             <h1>Confirm your details</h1>
-            <table>
-                <tr><th id="fname_r">First Name </th></tr>
-                <tr><th id="mname_r">Middle Name </th></tr>
-                <tr><th id="lname_r">Last Name </th></tr>
-                <tr><th id="sex_r">Gender </th></tr>
-                <tr><th id="dob_r">DOB </th></tr>
-                <tr><th id="lang_r">Languages known </th></tr>
-                <tr><th id="phone_r">Phone Number </th></tr>
-                <tr><th id="addr_r">Address </th></tr>
-                <tr><th><input type="button" id="edit" value="<< EDIT"></th><th><input type="button" id="confirm" value="Confirm >>"></th></tr>
-            </table>
+            <fieldset>
+                    <legend>Personal Info</legend>
+                    <table>
+                        <tr><th id="fname_r">First Name </th></tr>
+                        <tr><th id="mname_r">Middle Name </th></tr>
+                        <tr><th id="lname_r">Last Name </th></tr>
+                        <tr><th id="sex_r">Gender </th></tr>
+                        <tr><th id="dob_r">DOB </th></tr>
+                        <tr><th id="lang_r">Languages known </th></tr>
+                        <tr><th id="phone_r">Phone Number </th></tr>
+                        <tr><th id="addr_r">Address </th></tr>
+                        <tr>
+                            <th><input type="button" id="edit" value="<< Edit"></th>
+                            <th><input type="button" id="confirm" value="Confirm >>"></th>
+                        </tr>
+                    </table>
+            </fieldset>
         </div>
         <!-- education details form -->
         <form id="edu-info">
-            <h1>Education details</h1>
             <div>
-                <ul class="edu-item" id="edu-item-1">
-                    <li>
-                        <input type="text" class="univ" placeholder="*University/School">
-                        <select class="degree">
-                            <option>Doctorate</option>
-                            <option>Masters</option>
-                            <option>Bachelors</option>
-                            <option>High school</option>
-                        </select>
-                    </li>
-                    <li>
-                        <input type="text" class="start-date" placeholder="Start date">
-                        <input type="text" class="end-date" placeholder="End date">
-                    </li>
-                    <li>
-                        <b>Address</b><br>
-                        <input type="text" class="addr1" placeholder="Address line 1">
-                        <input type="text" class="addr2" placeholder="Address line 2"><br>
-                        <input type="text" class="city" placeholder="City">
-                        <input type="text" class="state" placeholder="State"><br>
-                        <input type="text" class="country" placeholder="Country">
-                        <input type="text" class="zip-code" placeholder="Zip code">
-                    </li>
-                </ul>
+                <fieldset id="edu-item-1">
+                    <legend>Education details</legend>
+                    <ul>
+                        <li>
+                            <input type="text" class="univ" id="univ" placeholder="*University/School">
+                            <select class="degree" id="degree">
+                                <option>Doctorate</option>
+                                <option>Masters</option>
+                                <option>Bachelors</option>
+                                <option>High school</option>
+                            </select>
+                        </li>
+                        <li>
+                            <input type="text" id="start-date" class="start-date" placeholder="Start date">
+                            <input type="text" id="end-date" class="end-date" placeholder="End date">
+                        </li>
+                        <li>
+                            <b>Address</b><br>
+                            <textarea id="univ-addr" placeholder="Address"></textarea>
+                        </li>
+                    </ul>
+                </fieldset>
             </div>
             <ul>
                 <li><input type="button" id="add-edu" value="+"><em class="warning" id="add-edu-warning"> Maximum four items allowed</em></li>
-                <li><input type="button" id="next" value="NEXT >>"><input type="reset" value="RESET"></li>
+                <li><input type="button" id="edu-next" value="Next >>"><input type="reset" value="Reset"></li>
             </ul>
         </form>
+        <!-- education information report -->
+        <div id="edu-info-report">
+            <h1>Confirm your details</h1>
+            <div id="edu-items">
+                <fieldset>
+                    <legend>Education: Recent</legend>
+                    <table>
+                        <tr><th id="univ_r">University </th></tr>
+                        <tr><th id="degree_r">Degree </th></tr>
+                        <tr><th id="start-date_r">Start Date </th></tr>
+                        <tr><th id="end-date_r">End Date </th></tr>
+                        <tr><th id="univ-addr_r">Address </th></tr>
+                    </table>
+                </fieldset>
+            </div>
+            <input type="button" id="edu-edit" value="<< Edit"></th><th><input type="button" id="edu-confirm" value="Submit >>">
+        </div>
+        <!-- Final report -->
+        <div id="final-report">
+            <h2>Successfully submitted<h2>
+        </div>
         <!-- always include index first, others don't matter -->
         <script src="../js/index.js"></script>
         <script src="../js/library.js"></script>
