@@ -1,16 +1,13 @@
 (function(myApp){
-    var V = myApp.validate;
+    /*-------- EXTERNALS ----------*/
     // personal info form
     var PIF = myApp.perInfo.form;
     // library
     var LIB = myApp.lib;
 
-    V.clearForm = function(){
-        var validatables = document.querySelectorAll('.warning');
-        [].forEach.call(validatables, function(f){
-            f.style.display = 'none';
-        });
-    };
+
+    /*--------- FORM VALIDATION -----------*/
+    var V = myApp.validate;
 
     V.validateForm = function(){
         var valid = true;
@@ -24,7 +21,8 @@
             valid = false;
         return valid;
     };
-    
+
+    /*--------- Required fields Validation-----------*/
     V.validateRequiredFields = function(){
         // verify if required fields are not empty
         var valid = true;
@@ -44,6 +42,7 @@
         return valid;
     }
 
+    /*--------- Name validation -----------*/
     V.validateChars = function(){
         // verify if data entered has invalid chars like ;,$,% etc
         var valid = true;
@@ -67,6 +66,7 @@
         return valid;
     }
 
+    /*--------- Phone validation -----------*/
     V.validatePhone = function(){
         // verify if phone number is valid
         var valid = true;
@@ -91,7 +91,8 @@
 
         return valid;
     };
-    
+
+    /*--------- Dob validation -----------*/
     V.validateDob = function(){
         // verify if date is valid
         var valid = false;
@@ -128,4 +129,11 @@
         return valid;
     };
 
+    /*--------- Clear validatable warnings -----------*/
+    V.clearValidatables = function(){
+        var validatables = document.querySelectorAll('.warning');
+        [].forEach.call(validatables, function(f){
+            f.style.display = 'none';
+        });
+    };
 })(VE.app1);

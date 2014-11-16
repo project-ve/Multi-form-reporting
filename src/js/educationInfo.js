@@ -7,9 +7,6 @@
 
 
     /*--------- EDUCATION FORM AND REPORT -----------*/
-    myApp.eduInfo = {};
-    myApp.eduInfo.form = {};
-    myApp.eduInfo.report = {};
     // education info form
     var EIF = myApp.eduInfo.form;
     // education info report

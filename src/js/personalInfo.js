@@ -4,12 +4,11 @@
     var LIB = myApp.lib;
     // validate
     var V = myApp.validate;
+    // personal info form
+    var EIF = myApp.eduInfo.form;
 
 
     /*--------- PERSONAL INFO FORM AND REPORT -----------*/
-    myApp.perInfo = {};
-    myApp.perInfo.form = {};
-    myApp.perInfo.report = {};
     // personal info form
     var PIF = myApp.perInfo.form;
     // personal info report
@@ -42,7 +41,7 @@
         PIF.regLangListContainer.innerHTML = "";
         PIF.forLangListContainer.innerHTML = "";
         // clear field validation messages
-        V.clearForm();
+        V.clearValidatables();
     });
 
     /*------- Report edit button event handler -----------------------------------*/
@@ -67,16 +66,6 @@
 
 
     /*------- Form Regional/Foreign language event handler -----------------------------------*/
-    var data = { 'optList': ['Telugu', 'Kannada', 'Tamil', 'Punjabi', 'Marathi'],
-                 'regLangCheckbox': PIF.langContainer.querySelector('input[value="Regional"]'),
-                 'dstNode': PIF.regLangListContainer };
-    data.regLangCheckbox.addEventListener('change', addSelectList.bind(data));
-
-    data = { 'optList': ['Spanish', 'French', 'Italian', 'Mandalin', 'Japanese'],
-             'foreignLangCheckbox': PIF.langContainer.querySelector('input[value="Foreign"]'),
-             'dstNode': PIF.forLangListContainer };
-    data.foreignLangCheckbox.addEventListener('change', addSelectList.bind(data));
-
     var addSelectList = function(){
         if (this.dstNode.innerHTML) {
             this.dstNode.innerHTML = '';
@@ -92,4 +81,14 @@
         });
         this.dstNode.appendChild(sel);
     };
+
+    var data = { 'optList': ['Telugu', 'Kannada', 'Tamil', 'Punjabi', 'Marathi'],
+                 'regLangCheckbox': PIF.langContainer.querySelector('input[value="Regional"]'),
+                 'dstNode': PIF.regLangListContainer };
+    data.regLangCheckbox.addEventListener('change', addSelectList.bind(data));
+
+    data = { 'optList': ['Spanish', 'French', 'Italian', 'Mandalin', 'Japanese'],
+             'foreignLangCheckbox': PIF.langContainer.querySelector('input[value="Foreign"]'),
+             'dstNode': PIF.forLangListContainer };
+    data.foreignLangCheckbox.addEventListener('change', addSelectList.bind(data));
 })(VE.app1);

@@ -1,26 +1,24 @@
 (function(myApp){
+    /*--------- Library Helper Methods -----------*/
     var LIB = myApp.lib;
 
+    // is field empty
     LIB.isEmpty = function(id){
         return !document.querySelector(id).value;
     };
 
+    // get field value
     LIB.getValue = function(id){
         return document.querySelector(id).value;
     };
 
+    // set element style
     LIB.setStyle = function(id, attr, val){
         document.querySelector(id).style[attr] = val;
     };
 
-    var createNode = function(type, txt){
-        var elem = document.createElement(type);
-        elem.className = "per-data";
-        var text = document.createTextNode(txt);
-        elem.appendChild(text);
-        return elem;
-    };
-    
+
+    /*--------- Personal Info Report -----------*/  
     LIB.createReport = function(form, report){
         var dstNode;
         var f = form.self;
@@ -63,7 +61,17 @@
             }
         }
     };
-    
+
+    var createNode = function(type, txt){
+        var elem = document.createElement(type);
+        elem.className = "per-data";
+        var text = document.createTextNode(txt);
+        elem.appendChild(text);
+        return elem;
+    };
+
+
+    /*--------- Clear Personal Info Report -----------*/  
     LIB.clearReport = function(selector){
         var delNodes = document.querySelectorAll(selector);
         for(var i=delNodes.length-1; i>=0; i--){
